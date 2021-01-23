@@ -181,11 +181,11 @@ table th{
 
 }
 
-table tbody tr {
+tr {
     opacity: 0.7;
 }
 
-table tbody tr:hover{
+tr:hover{
     opacity: 1;
 }
 

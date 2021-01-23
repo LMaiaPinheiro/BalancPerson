@@ -1,38 +1,48 @@
     
     function add(){
-        var trs = document.querySelectorAll("input")
+        let desc= document.getElementById('descript')
+        let val= document.getElementById('value')
+        let date= document.getElementById('date')
+        let tabela = document.getElementById('data-table')       
+        let linha = document.createElement('tr')
+       
+        var trans = [desc.value,val.value,date.value,`<img src="./assets/minus.svg" alt="Remover lançamento">`]  
         
-        var tabela = document.getElementById('data-table');
-        var numeroLinhas = 1;
-        var linha = tabela.insertRow(numeroLinhas);
-        var celula1 = linha.insertCell(0);
-        var celula2 = linha.insertCell(1);   
-        var celula3 = linha.insertCell(2);
-        var celula4 = linha.insertCell(3);
+        for(var i=0;i<4;i++){
+            let cell = document.createElement('td')
+            cell.innerHTML= trans[i]
+            
+            switch(i){
+               case 0:
+                   cell.setAttribute("class","description")
+                   cell.innerHTML= trans[i]
+               break
+               case 1:
+                   if(trans[i]<0){
+                    cell.setAttribute("class","expense")
+                    cell.innerHTML= `- R$ ${Number(trans[i]*-1).toFixed(2).replace('.',',')}`
+                   }else{
+                    cell.setAttribute("class","income")
+                    cell.innerHTML= `R$ ${Number(trans[i]).toFixed(2).replace('.',',')}`
+                   }               
+               break
+               case 2:
+                    cell.setAttribute("class","date")
+                    cell.innerHTML= trans[i]
+                break
+                default:
+                    cell.innerHTML= trans[i]
+                break
 
-        celula1.innerHTML = trs[0].value;
-        celula1.classList.add("description") 
-        if(trs[1].value<0){
-            celula2.innerHTML = `- R$ ${Number(trs[1].value).toFixed(2).replace(".",",")*-1}`;
-            celula2.classList.add('expense')
-        }else{
-            celula2.innerHTML = `R$ ${Number(trs[1].value).toFixed(2).replace(".",",")}`;
-            celula2.classList.add('income')
-        }
-          let data = trs[2].value.split("-")     
-        celula3.innerHTML = `${data[2]}/${data[1]}/${data[0]}`;
-        celula3.classList.add("date") 
-        celula4.innerHTML =  `<img src="./assets/minus.svg" alt="Remover lançamento">`; 
+            }
         
-        trs[0].value=''
-        trs[1].value=''
-        trs[2].value=''
+            linha.appendChild(cell)
+        }
+        tabela.appendChild(linha)
+        clear()
         closeModel()
     }
-        
-    
-   
-   
+          
    
    
    function openModel(){
@@ -43,4 +53,9 @@
         let modal =document.querySelector('.modal-overlay')
         modal.classList.remove('active')
         
+    }
+    function clear(){
+        document.getElementById('descript').value=''
+        document.getElementById('value').value=''
+        document.getElementById('date').value=''
     }
