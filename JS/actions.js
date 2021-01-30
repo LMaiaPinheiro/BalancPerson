@@ -63,6 +63,16 @@ const Modal = {
 
         transactionsContainer: document.querySelector('#data-table tbody'),
 
+        changColorTotal(value){
+            if(value<0){
+                document.querySelector('.card.total').classList.add('negativo')
+                
+            }else{
+                document.querySelector('.card.total').classList.remove('negativo')
+            }
+            
+        },
+
         addTransaction(transaction,index){
             const tr = document.createElement('tr')
             tr.innerHTML = DOM.innerHTMLTrasaction(transaction, index)
@@ -90,6 +100,7 @@ const Modal = {
             document.getElementById('incomeDisplay').innerHTML = Utils.formatCurrency(Transaction.incomes())
             document.getElementById('expenseDisplay').innerHTML = Utils.formatCurrency(Transaction.exprenses())
             document.getElementById('totalDisplay').innerHTML = Utils.formatCurrency(Transaction.total())
+            DOM.changColorTotal(Transaction.total())
         },
 
         clearTransactions(){
@@ -114,9 +125,9 @@ const Modal = {
 
         },
         formatAmount(value){
-            value=Number(value)*100
+            value=value*100
 
-            return value
+            return Math.round(value)
         },
         formatDate(date){
             const splittedDate = date.split("-")

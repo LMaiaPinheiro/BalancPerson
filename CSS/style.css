@@ -1,6 +1,10 @@
 /* Global ===========================*/
-:root{
-    --dark-blue:#363f5f;
+:root {
+    --dark-blue: #363f5f;
+    --green: #49AA26;
+    --light-green: #3dd705;
+    --red: #e92929;
+
 }
 
 *{
@@ -90,14 +94,16 @@ a.button.new{
 
 /* Header ===================================*/
 header{
-    background: #0f0f0fa6;
+    background: #000000;
     padding: 2rem 0 10rem;
     text-align: center;
+    background-image: linear-gradient(180deg, #7d4159 0, #773959 12.5%, #6f3159 25%, #652859 37.5%, #591f59 50%, #4b185a 62.5%, #3a135b 75%, #24125d 87.5%, #00125f 100%);
 }
 header h1#logo{
     color: #fff;
-    font-weight: 100;
+    font-weight:200px;
 }
+
 
 /* Balance ===================================*/
 
@@ -109,13 +115,13 @@ header h1#logo{
     margin-top: 0;
 }
 /* Cards ===================================*/
-
-.card{
+.card {
     background: white;
     padding: 1.5rem 2rem;
     border-radius: 0.25rem;
 
     margin-bottom: 2rem;
+
     color: var(--dark-blue);
 }
 
@@ -128,26 +134,23 @@ header h1#logo{
     justify-content: space-between;
 }
 
-.card p{
+.card p {
     font-size: 2rem;
     line-height: 3rem;
+
     margin-top: 1rem;
 }
 
-#entradas{
-    background-color:#32df6cbb;
-    color: white;
-}
-#saidas{
-    background-color:#e83f5bbb;
+.card.total {
+    background: var( --green);
     color: white;
 }
 
-
-.card.total{
-    background: #26aa52bb;
+.card.total.negativo {
+    background:#e92929 ;
     color: white;
 }
+
 /* Table ===================================*/
 #transaction{
     display: block;
