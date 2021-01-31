@@ -1,3 +1,16 @@
+@keyframes slidein {
+    from {
+      margin-left:-100%;
+      width:100%;
+      opacity: 0;
+    }
+  
+    to {
+     margin-right:100%;
+     width:100%;
+     opacity: 1;
+   }
+  }
 /* Global ===========================*/
 :root {
     --dark-blue: #363f5f;
@@ -119,10 +132,24 @@ header h1#logo{
     background: white;
     padding: 1.5rem 2rem;
     border-radius: 0.25rem;
-
+    opacity: 1;
     margin-bottom: 2rem;
 
-    color: var(--dark-blue);
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: 1;
+}
+
+.card#saidas:hover{
+    border: none;
+    background-color: #e92929;
+    color: white;
+}
+
+.card#entradas:hover{
+    border: none;
+    background-color: #49aa26;
+    color: white;
 }
 
 .card h3 {
