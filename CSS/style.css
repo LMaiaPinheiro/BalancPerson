@@ -1,27 +1,4 @@
-@keyframes slidein {
-    from {
-      margin-left:-100%;
-      width:100%;
-      opacity: 0;
-    }
-  
-    to {
-     margin-right:100%;
-     width:100%;
-     opacity: 1;
-   }
-   
-  }
-
-  @keyframes opacity {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-     opacity: 0.7;
-   }
-}
+ 
 /* Global ===========================*/
 :root {
     --dark-blue: #363f5f;
@@ -39,11 +16,13 @@
 
 html {
     font-size: 93.75%; /* 15px */
+    
 }
 
 body{
-    background: #e2e1e1;
+    background: #a2f9ff;
     font-family: 'Poppins', sans-serif;
+ 
 }
 
 .sr-only {
@@ -72,7 +51,7 @@ h2{
 }
 
 /* Links & Buttons ===================================*/
-a {
+a{
     color: #000000ce;
     text-decoration: none;
 }
@@ -85,6 +64,7 @@ button{
     padding: 0;
     border-radius: 0.25rem;
     cursor: pointer;
+    background: #d9f3f5;
 }
 
 button:hover{
@@ -98,6 +78,7 @@ a:hover{
 a.button.new{
     display: inline-block;
     margin-bottom: 0.8rem;
+    font-size: 15px;
 }
 
 .button.cancel{
@@ -118,10 +99,10 @@ a.button.new{
 
 /* Header ===================================*/
 header{
-    background: #000000;
-    padding: 2rem 0 10rem;
+    background-image: linear-gradient(0, #a2f9ff 0, #3284f2 50%, #001f4e 100%);
+    padding: 4rem 0 10rem;
     text-align: center;
-    background-image: linear-gradient(180deg, #7d4159 0, #773959 12.5%, #6f3159 25%, #652859 37.5%, #591f59 50%, #4b185a 62.5%, #3a135b 75%, #24125d 87.5%, #00125f 100%);
+    
 }
 header h1#logo{
     color: #fff;
@@ -132,7 +113,7 @@ header h1#logo{
 /* Balance ===================================*/
 
 #balance {
-    margin-top: -8rem;
+    margin-top: -6rem;
 }
 #balance h2{
     color: white;
@@ -145,21 +126,17 @@ header h1#logo{
     border-radius: 0.25rem;
     opacity: 1;
     margin-bottom: 2rem;
-
-    animation-duration: 3s;
-    animation-name: slidein;
-    animation-iteration-count: 1;
 }
 
-.card#saidas:hover{
+.card#expense:hover{
     border: none;
-    background-color: #e92929;
+    background-color: #e92929a6;
     color: white;
 }
 
-.card#entradas:hover{
+.card#income:hover{
     border: none;
-    background-color: #49aa26;
+    background-color: #49aa26a6;
     color: white;
 }
 
@@ -218,16 +195,11 @@ table th{
     font-weight: normal;
     padding: 1rem 2rem;
     text-align: left;
-    
 
 }
 
 tr {
     opacity: 0.7;
-    animation-duration: 3s;
-    animation-name: opacity;
-    animation-iteration-count: 1;
-   
 }
 
 tr:hover{
@@ -237,7 +209,9 @@ tr:hover{
 table td{
     background: white;
     padding: 1rem 2rem;
-    
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: 1;
 }
 
 td.descriprion{
@@ -250,12 +224,10 @@ td.expense {
     color:#e92929;
 }
 /* Modal ===================================*/
-
 .modal-overlay {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-
     position: fixed;
     top:0;
 
@@ -275,9 +247,9 @@ td.expense {
 }
 
 .modal {
-    background: #F0F2F5;
+    background: #d9f3f5;
     padding: 2.4rem;
-
+    border-radius: 0.7rem;
     position: relative;
     z-index: 1;
 

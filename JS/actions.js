@@ -126,7 +126,6 @@ const Modal = {
         },
         formatAmount(value){
             value=value*100
-
             return Math.round(value)
         },
         formatDate(date){
@@ -174,17 +173,16 @@ const Modal = {
         },
         submit(event){
             event.preventDefault();
-            //try{
-                
+            try{
                 Form.validateField()
                 const transaction = Form.formatValues()
                 Transaction.add(transaction)
                 Form.clearFildes();
                 Modal.close()
 
-            //} catch(error){
-           //     alert(error.message)
-            //}
+            } catch(error){
+                alert(error.message)
+            }
             
         }
     }
